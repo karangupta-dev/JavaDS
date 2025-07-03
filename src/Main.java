@@ -12,12 +12,9 @@ public class Main {
         myLinkedList.append(5);
 
         // create a loop by connecting the tail to the second node
-        myLinkedList.getTail().next = myLinkedList.getHead().next;
-
+//        myLinkedList.getTail().setNext(myLinkedList.getHead().getNext()) ;
 
         System.out.println("Has Loop:");
         System.out.print( myLinkedList.hasLoop());
-
-
     }
 }

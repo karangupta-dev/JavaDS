@@ -4,18 +4,18 @@ public class LL_HasLoop extends LinkedList {
 
         /* goes in PSVM
 
-         LL_HasLoop myLinkedList = new LinkedList(1);
+          LL_HasLoop myLinkedList = new LL_HasLoop(1);
         myLinkedList.append(2);
         myLinkedList.append(3);
         myLinkedList.append(4);
         myLinkedList.append(5);
 
         // create a loop by connecting the tail to the second node
-        myLinkedList.getTail().next = myLinkedList.getHead().next;
+        myLinkedList.getTail().setNext(myLinkedList.getHead().getNext()) ;
 
 
         System.out.println("Has Loop:");
-        System.out.println( myLinkedList.hasLoop());
+        System.out.print( myLinkedList.hasLoop());
 
      */
 
@@ -25,7 +25,20 @@ public class LL_HasLoop extends LinkedList {
     }
 
     public boolean hasLoop() {
-        return true;
+
+        Node slow = getHead();
+        Node fast = getHead();
+
+        while (fast != null && fast.getNext() != null) {
+
+            fast = fast.next.next;
+            slow = slow.getNext();
+            if (fast == slow) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
 }

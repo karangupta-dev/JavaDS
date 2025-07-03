@@ -50,12 +50,12 @@ public class LL_FindMiddleNode extends LinkedList {
 
     public Node findMiddleNode() {
 
-        if (head == null) {
+        if (getHead() == null) {
             return null;
         }
 
-        Node slow = head;
-        Node fast = head;
+        Node slow = getHead();
+        Node fast = getHead();
 
         while (fast != null && fast.next != null) {
 

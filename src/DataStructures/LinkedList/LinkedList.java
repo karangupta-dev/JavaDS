@@ -9,6 +9,10 @@ public class LinkedList {
         int value;
         Node next;
 
+        public void setNext(Node next) {
+            this.next = next;
+        }
+
         Node(int value) {
             this.value = value;
         }
