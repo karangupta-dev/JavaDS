@@ -5,6 +5,27 @@ import java.util.HashMap;
 
 public class Graph {
 
+//    Below goes into main()
+//    Graph myGraph = new Graph();
+//
+//        myGraph.addVertex("A");
+//        myGraph.addVertex("B");
+//
+//        myGraph.addEdge("A", "B");
+//
+//        System.out.println("\nGraph:");
+//        myGraph.printGraph();
+//
+//        myGraph.removeEdge("A", "B");
+//
+//        System.out.println("\nAfter edge removal Graph:");
+//        myGraph.printGraph();
+//
+//        myGraph.removeVertex("B");
+//
+//        System.out.println("\nAfter vertex removal Graph:");
+//        myGraph.printGraph();
+
     private HashMap<String, ArrayList<String>> adjList = new HashMap<>();
 
     public void printGraph() {
