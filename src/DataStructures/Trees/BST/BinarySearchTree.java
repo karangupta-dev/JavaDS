@@ -1,4 +1,4 @@
-package DataStructures.Trees;
+package DataStructures.Trees.BST;
 
 
 public class BinarySearchTree {
@@ -19,7 +19,7 @@ public class BinarySearchTree {
 
     Node root;
 
-    boolean addNode(int value) {
+    public boolean addNode(int value) {
 
         Node newNode = new Node(value);
 
@@ -56,6 +56,21 @@ public class BinarySearchTree {
         }
 
         return null;
+    }
+
+    public static void main(String[] args) {
+
+        BinarySearchTree bst = new BinarySearchTree();
+
+        bst.addNode(11);
+        bst.addNode(2);
+        bst.addNode(33);
+        bst.addNode(14);
+
+//        bst.printBST();
+        System.out.println('\n');
+        System.out.println(bst.root.right.left.value);
+
     }
 
 }
