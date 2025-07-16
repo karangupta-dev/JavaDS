@@ -1,7 +1,6 @@
 package ProgrammingProblems;
 
-import ProgrammingProblems.Streams.GroupEmployees;
-import ProgrammingProblems.Streams.TopN_FrequentWords;
+import Misc.Child;
 
 import java.util.Scanner;
 
@@ -33,7 +32,7 @@ public class Main {
 //            new GroupEmployees().groupEmployeesByDepartment();
 
 //**************************** Interview ****************************************//
-        new Interview().someMethod();
+        new Child().someMethod();
 
     }
 
