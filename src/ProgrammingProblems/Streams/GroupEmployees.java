@@ -8,9 +8,9 @@ import java.util.stream.Collectors;
 
 public class GroupEmployees {
 
-    List<Employee> employees = new ArrayList<Employee>();
+    static List<Employee> employees = new ArrayList<Employee>();
 
-    private void createMockEmployeeData() {
+    private static void createMockEmployeeData() {
         employees.add(new Employee(1L, "Sujal", 25000, EmployeeDepartment.SALES));
         employees.add(new Employee(2L, "John", 22000, EmployeeDepartment.SALES));
         employees.add(new Employee(3L, "Mac", 23000, EmployeeDepartment.SALES));
@@ -24,9 +24,8 @@ public class GroupEmployees {
         employees.add(new Employee(23L, "Maverick", 30000, EmployeeDepartment.MARKETING));
     }
 
-    public void groupEmployeesByDepartment() {
+    public static void groupEmployeesByDepartment() {
         createMockEmployeeData();
-
 
         Map<EmployeeDepartment, List<Employee>> map = groupByDepartment();
 
@@ -37,8 +36,6 @@ public class GroupEmployees {
         printAverageSalaryPerDepartment(map);
 
         topN_SalariesPerDepartment(2, map);
-
-
     }
 
     private static void printEachEmployeeNamePerDepartment(Map<EmployeeDepartment, List<Employee>> map) {
@@ -58,7 +55,7 @@ public class GroupEmployees {
                 .forEach(System.out::println);
     }
 
-    private Map<EmployeeDepartment, List<Employee>> groupByDepartment() {
+    private static  Map<EmployeeDepartment, List<Employee>> groupByDepartment() {
         //        DID BY KARAN
 //        HashMap<EmployeeDepartment, List<Employee>> map = new HashMap<EmployeeDepartment, List<Employee>>();
 
@@ -111,6 +108,11 @@ public class GroupEmployees {
 
     private static void printUniqueNoOfDepartments(Map<EmployeeDepartment, List<Employee>> map) {
         System.out.println("\nNo of unique departments: " + map.keySet().stream().count());
+    }
+
+    public static void main(String[] args) {
+        groupEmployeesByDepartment();
+
     }
 
 }
