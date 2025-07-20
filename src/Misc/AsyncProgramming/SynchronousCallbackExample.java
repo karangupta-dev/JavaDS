@@ -1,11 +1,6 @@
 package Misc.AsyncProgramming;
 
 // Java program to illustrate synchronous callback
-interface OnGeekEventListener {
-
-    // this can be any type of method
-    void onGeekEvent();
-}
 
 class B {
 
@@ -32,8 +27,8 @@ class B {
 
     // Driver Function
     public static void main(String[] args) {
-        B obj = new B();
-        OnGeekEventListener mListener = new A();
+        Bravo obj = new Bravo();
+        OnGeekEventListener mListener = new Alpha();
         obj.registerOnGeekEventListener(mListener);
         obj.doGeekStuff();
     }

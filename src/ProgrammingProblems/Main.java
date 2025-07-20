@@ -1,7 +1,5 @@
 package ProgrammingProblems;
 
-import Misc.Child;
-
 import java.util.Scanner;
 
 public class Main {
@@ -31,8 +29,7 @@ public class Main {
 //**************************** Group employees by department ****************************************//
 //            new GroupEmployees().groupEmployeesByDepartment();
 
-//**************************** Interview ****************************************//
-        new Child().someMethod();
+
 
     }
 
