@@ -32,12 +32,10 @@ public class PracticeCompletableFuture {
         });
     }
 
-    private static void simulateException(){
-        CompletableFuture future = CompletableFuture.supplyAsync(()-> {
+    private static void simulateException() {
+        CompletableFuture future = CompletableFuture.supplyAsync(() -> {
             throw new RuntimeException("Mock error");
         });
-
-        
 
     }
 
