@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.stream.IntStream;
 
 
 public class FindDuplicateCharactersInAString {
@@ -24,7 +25,8 @@ public class FindDuplicateCharactersInAString {
     }
 
     public static void main(String[] args) {
-        countCharacters("programming");
+//        countCharacters("programming");
+        IntStream.range(1, 1000).parallel().forEach(System.out::println);
 
     }
 }
