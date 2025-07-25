@@ -2,8 +2,6 @@ package ProgrammingProblems.Streams;
 
 import java.util.*;
 
-import static java.util.stream.Collectors.groupingBy;
-
 public class TopN_FrequentWords {
 
     public void printTopNFrequentWords(String str, int n) {
