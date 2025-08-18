@@ -55,7 +55,7 @@ public class EasyQuestions {
 //        removeDuplicates();
 //        sortListOfString();
 //        startsWithNAlphabet();
-        doubleUp();
+//        doubleUp();
     }
 
 }

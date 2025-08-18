@@ -3,6 +3,7 @@ package ProgrammingProblems.Streams;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
@@ -112,6 +113,28 @@ public class PracticeLambda {
         System.out.println(reversed);
     }
 
+    class Inner{
+
+        public Inner(){
+            System.out.println("inner created");
+        }
+
+    }
+
+    public void testOptional() {
+        String name = "Alice";
+        Optional<String> opt = Optional.ofNullable(name);
+        System.out.println(opt.orElse("")); // print correct value of name
+
+        // print value of name but eagerly creates object of Inner
+        System.out.println(opt.orElse(new Inner().toString()));
+
+        // print value of name but lazily creates object of Inner only when name is null
+        System.out.println(opt.orElseGet(() -> new Inner().toString()));
+
+
+    }
+
     public static void main(String[] args) {
 //        filterEventNumber();
 //        customerUpperCase();
@@ -123,5 +146,7 @@ public class PracticeLambda {
 //        variationsOfReduce();
 //        reverseListOfNums();
 
+        PracticeLambda lmb = new PracticeLambda();
+        lmb.testOptional();
     }
 }

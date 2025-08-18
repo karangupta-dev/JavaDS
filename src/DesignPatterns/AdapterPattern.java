@@ -35,7 +35,6 @@ public class AdapterPattern {
 
     public static void main(String[] args) {
         // Using the Adapter
-        PrinterAdapter adapter = new PrinterAdapter();
-        clientCode(adapter);
+         clientCode(new PrinterAdapter());
     }
 }

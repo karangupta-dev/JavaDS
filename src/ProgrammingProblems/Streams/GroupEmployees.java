@@ -15,9 +15,14 @@ public class GroupEmployees {
         employees.add(new Employee(2L, "John", 22000, EmployeeDepartment.SALES));
         employees.add(new Employee(3L, "Mac", 23000, EmployeeDepartment.SALES));
 
+        employees.add(null);
+        employees.add(null);
+
         employees.add(new Employee(11L, "Ajay", 25000, EmployeeDepartment.FINANCE));
         employees.add(new Employee(22L, "Vijay", 22000, EmployeeDepartment.FINANCE));
         employees.add(new Employee(33L, "Bimal", 23000, EmployeeDepartment.FINANCE));
+
+        employees.add(null);
 
         employees.add(new Employee(21L, "Nipun", 27000, EmployeeDepartment.MARKETING));
         employees.add(new Employee(22L, "Naveen", 29000, EmployeeDepartment.MARKETING));
@@ -27,13 +32,40 @@ public class GroupEmployees {
     public static void groupEmployeesByDepartment() {
         createMockEmployeeData();
 
+        /*
+         *
+         * employees.stream().collect(Collectors.groupingBy(Employee::getDepartmentName()))
+         *
+         * */
         Map<EmployeeDepartment, List<Employee>> map = groupByDepartment();
 
-        printEachEmployeeNamePerDepartment(map);
 
-        printUniqueNoOfDepartments(map);
+        /*
+         * map.entrySet().stream()
+         *       .flatMap(entry -> entry.getValue().stream()
+         *                      .map(emp-> entry.getKey() + "-" + emp.getName()))
+         *       .forEach(System.out::println);
+         *
+         * */
+//        printEachEmployeeNamePerDepartment(map);
 
-        printAverageSalaryPerDepartment(map);
+
+//        printUniqueNoOfDepartments(map);
+
+        /*
+         *
+         * map.entrySet().stream().forEach(entry ->{
+         *       int numberOfEmployees =  entry.getValue().stream().count();
+         *       float totalSalaryOfDept =  entry.getValue().stream().map(emp-> emp.getSalary).reduce(0,Integer::sum);
+         * if(numberOfEmployees > 0){
+         *   System.out.println(entry.getKey() + "-" + (totalSalaryOfDept/numberOfEmployees));
+         * }
+         *
+         * })
+         *
+         * */
+
+//        printAverageSalaryPerDepartment(map);
 
         topN_SalariesPerDepartment(2, map);
     }
@@ -55,7 +87,7 @@ public class GroupEmployees {
                 .forEach(System.out::println);
     }
 
-    private static  Map<EmployeeDepartment, List<Employee>> groupByDepartment() {
+    private static Map<EmployeeDepartment, List<Employee>> groupByDepartment() {
         //        DID BY KARAN
 //        HashMap<EmployeeDepartment, List<Employee>> map = new HashMap<EmployeeDepartment, List<Employee>>();
 
@@ -71,9 +103,8 @@ public class GroupEmployees {
 //        }
 
 //        DID GROUPING USING STREAMS
-        Map<EmployeeDepartment, List<Employee>> map = employees.stream()
+        return employees.stream().filter(Objects::nonNull)
                 .collect(Collectors.groupingBy(Employee::getDepartment));
-        return map;
     }
 
     private static void topN_SalariesPerDepartment(int n, Map<EmployeeDepartment, List<Employee>> map) {
@@ -95,6 +126,17 @@ public class GroupEmployees {
     private static void printAverageSalaryPerDepartment(Map<EmployeeDepartment, List<Employee>> map) {
         System.out.println("\nAverage salary in each dept");
 
+
+//        map.entrySet().stream().forEach(entry -> {
+//            long numberOfEmployees = entry.getValue().stream().count();
+//            float totalSalaryOfDept = entry.getValue().stream().map(Employee::getSalary).reduce(0, Integer::sum);
+//            if (numberOfEmployees > 0) {
+//                System.out.println(entry.getKey() + "-" + (totalSalaryOfDept / numberOfEmployees));
+//            }
+//
+//        });
+
+
         map.entrySet().stream()
                 .forEach(entry -> {
                     double avgSalary = entry.getValue().stream()
@@ -107,7 +149,11 @@ public class GroupEmployees {
     }
 
     private static void printUniqueNoOfDepartments(Map<EmployeeDepartment, List<Employee>> map) {
-        System.out.println("\nNo of unique departments: " + map.keySet().stream().count());
+//        System.out.println("\nNo of unique departments: " + map.keySet().stream().count());
+
+//         OR
+
+        System.out.println("\nNo of unique departments: " + map.entrySet().stream().distinct().count());
     }
 
     public static void main(String[] args) {

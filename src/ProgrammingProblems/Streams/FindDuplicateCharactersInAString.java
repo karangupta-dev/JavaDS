@@ -1,10 +1,8 @@
 package ProgrammingProblems.Streams;
 
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.stream.IntStream;
 
 
 public class FindDuplicateCharactersInAString {
@@ -18,15 +16,15 @@ public class FindDuplicateCharactersInAString {
         });
 
         map.entrySet().stream()
-                .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
+//                .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
                 .forEach(entry -> {
             System.out.println(String.format("%s occurred %d times", entry.getKey(), entry.getValue()));
         });
     }
 
     public static void main(String[] args) {
-//        countCharacters("programming");
-        IntStream.range(1, 1000).parallel().forEach(System.out::println);
+        countCharacters("programming");
+//        IntStream.range(1, 1000).parallel().forEach(System.out::println);
 
     }
 }
