@@ -1,12 +1,10 @@
 package ProgrammingProblems.Streams;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.collectingAndThen;
 import static java.util.stream.Collectors.toList;
@@ -122,20 +120,40 @@ public class PracticeLambda {
     }
 
     public void testOptional() {
-        String name = "Alice";
-        Optional<String> opt = Optional.ofNullable(name);
-        System.out.println(opt.orElse("")); // print correct value of name
+//        String name = "Alice";
+//        Optional<String> opt = Optional.ofNullable(name);
+//        System.out.println(opt.orElse("")); // print correct value of name
+//
+//        // print value of name but eagerly creates object of Inner
+//        System.out.println(opt.orElse(new Inner().toString()));
+//
+//        // print value of name but lazily creates object of Inner only when name is null
+//        System.out.println(opt.orElseGet(() -> new Inner().toString()));
 
-        // print value of name but eagerly creates object of Inner
-        System.out.println(opt.orElse(new Inner().toString()));
+//        String name =  "null";
+//        Optional<String> opt = Optional.ofNullable(name);
+//
+//        System.out.println(opt.map(String::length).orElse(0));
 
-        // print value of name but lazily creates object of Inner only when name is null
-        System.out.println(opt.orElseGet(() -> new Inner().toString()));
+        Optional<String> name = Optional.of("Alice");
+        Optional<Integer> length = name.flatMap(n -> Optional.of(n.length()));
+        System.out.println(length);
+    }
 
+    public void testQuestionsBasedOnOptional(){
+        List<String> names = Arrays.asList("Alice", "Bob", null, "Charlie", "David", null);
+
+        names.stream().map(Optional::ofNullable).flatMap(opt-> opt.map(Stream::of).orElseGet(Stream::empty) ).toList();
 
     }
 
     public static void main(String[] args) {
+
+        PracticeLambda lmb = new PracticeLambda();
+//        lmb.testOptional();
+        lmb.testQuestionsBasedOnOptional();
+
+
 //        filterEventNumber();
 //        customerUpperCase();
 //        printElements();
@@ -145,8 +163,5 @@ public class PracticeLambda {
 //        groupByFirstLetter();
 //        variationsOfReduce();
 //        reverseListOfNums();
-
-        PracticeLambda lmb = new PracticeLambda();
-        lmb.testOptional();
     }
 }
