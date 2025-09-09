@@ -53,7 +53,7 @@ public class EasyQuestions {
 //        convertToUpperCase();
 //        sumOfAllNums();
 //        removeDuplicates();
-//        sortListOfString();
+        sortListOfString();
 //        startsWithNAlphabet();
 //        doubleUp();
     }

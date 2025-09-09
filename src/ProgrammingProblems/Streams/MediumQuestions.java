@@ -87,6 +87,6 @@ public class MediumQuestions {
 //        flattenList();
 //        frequencyOfChar();
 //        getLongestStringFromList();
-        partitionList();
+//        partitionList();
     }
 }
