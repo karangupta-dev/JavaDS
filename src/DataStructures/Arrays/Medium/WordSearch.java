@@ -3,14 +3,14 @@ package DataStructures.Arrays.Medium;
 public class WordSearch {
 
     public static boolean dfs(char[][] board, int r, int c, String word, boolean[][] visited) {
-        if (r < 0 || r >= board.length || c < 0 || c >= board[0].length || visited[r][c] == true) {
+        if (r < 0 || r >= board.length || c < 0 || c >= board[0].length || visited[r][c]) {
             return false;
         }
 
         if (board[r][c] == word.charAt(0)) {
             visited[r][c] = true;
             word = word.substring(1);
-            if (word.length() == 0) {
+            if (word.isEmpty()) {
                 return true;
             }
             boolean left = dfs(board, r, c - 1, word, visited);

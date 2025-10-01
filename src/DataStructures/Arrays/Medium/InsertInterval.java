@@ -41,8 +41,10 @@ public class InsertInterval {
     }
 
     public static void main(String[] args) {
-        int[][] intervals = {{1, 2}, {3, 5}, {6, 7}, {8, 10}, {12, 16}};
-        int[] newInterval = {4, 8};
+//        int[][] intervals = {{1, 2}, {3, 5}, {6, 7}, {8, 10}, {12, 16}};
+        int[][] intervals = {{1, 2}, {2, 5}};
+
+        int[] newInterval = {2, 3};
         int[][] result = insert(intervals, newInterval);
         int[][] withMergedIntervals = merged(result);
         for (int[] interval : result) {
