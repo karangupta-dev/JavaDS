@@ -35,17 +35,4 @@ public class PreOrder {
         TreeNode root = tree.buildPreOrderTree(nodes);
         printTreeInPreOrder(root);
     }
-
-
-    public static int maxDepth(TreeNode root) {
-
-        if (root == null) {
-            return 0;
-        }
-
-        int leftDepth = maxDepth(root.getLeft());
-        int rightDepth = maxDepth(root.getRight());
-
-        return Math.max(leftDepth, rightDepth) + 1;
-    }
 }
