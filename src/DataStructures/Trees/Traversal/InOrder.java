@@ -18,22 +18,22 @@ public class InOrder {
 
     }
 
-    public static TreeNode buildInorderTree(int[] nodes) {
+    public static TreeNode buildTree(int[] nodes) {
         idx++;
         if (nodes[idx] == -1) {
             return null;
         }
 
         TreeNode newTreeNode = new TreeNode(nodes[idx]);
-        newTreeNode.setLeft(buildInorderTree(nodes));
-        newTreeNode.setRight(buildInorderTree(nodes));
+        newTreeNode.setLeft(buildTree(nodes));
+        newTreeNode.setRight(buildTree(nodes));
         return newTreeNode;
     }
 
     public static void main(String args[]) {
         int[] nodes = {1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
 
-        TreeNode root = InOrder.buildInorderTree(nodes);
+        TreeNode root = InOrder.buildTree(nodes);
         printTreeInInOrder(root);
     }
 }
