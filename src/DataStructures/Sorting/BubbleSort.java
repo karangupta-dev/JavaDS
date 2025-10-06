@@ -2,6 +2,7 @@ package DataStructures.Sorting;
 
 public class BubbleSort implements Sortable {
 
+    // move biggest number to end first
     public int[] sort(int[] nums) {
 
         for (int i = 0; i < nums.length; i++) {

@@ -6,7 +6,7 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String s = sc.nextLine();
+//        String s = sc.nextLine();
 
         System.out.print("Enter size of array: ");
         int size = sc.nextInt();
@@ -19,7 +19,8 @@ public class Main {
         }
 
 //        Sortable sortable = new BubbleSort();
-        Sortable sortable = new SelectionSort();
+//        Sortable sortable = new SelectionSort();
+            Sortable sortable = new InsertionSort();
 
         sortable.printSortedList(sortable.sort(nums));
 

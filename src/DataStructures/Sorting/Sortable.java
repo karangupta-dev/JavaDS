@@ -6,7 +6,7 @@ public interface Sortable {
 
     default void printSortedList(int[] nums) {
         for (int j : nums) {
-            System.out.println(j);
+            System.out.print(j + " ");
         }
     }
 
