@@ -15,7 +15,6 @@ public class MaxDepth {
         }
 
         return Math.max(maxDepth(node.getLeft()), maxDepth(node.getRight())) + 1;
-
     }
 
     public static TreeNode buildTree(int[] nodes) {
