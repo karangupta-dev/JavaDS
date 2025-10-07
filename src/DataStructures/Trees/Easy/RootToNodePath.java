@@ -8,9 +8,9 @@ import java.util.Objects;
 
 public class RootToNodePath {
 
-    static int idx = -1;
+    protected static int idx = -1;
 
-    private static boolean dfs(final TreeNode node, final List<Integer> path, final int target) {
+    protected static boolean dfs(final TreeNode node, final List<Integer> path, final int target) {
 
         if (Objects.isNull(node)) {
             return false;
@@ -31,10 +31,9 @@ public class RootToNodePath {
             path.removeLast();
             return false;
         }
-
     }
 
-    private static int[] getPath(final TreeNode node, final int target) {
+    protected static int[] getPath(final TreeNode node, final int target) {
 
         List<Integer> path = new ArrayList<Integer>();
 
@@ -47,7 +46,7 @@ public class RootToNodePath {
         return path.stream().mapToInt(Integer::intValue).toArray();
     }
 
-    private static TreeNode buildTree(final int[] nodes) {
+    protected static TreeNode buildTree(final int[] nodes) {
         idx++;
         if (nodes[idx] == -1) {
             return null;
