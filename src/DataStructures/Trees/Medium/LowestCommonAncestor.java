@@ -3,10 +3,7 @@ package DataStructures.Trees.Medium;
 import DataStructures.Trees.Easy.RootToNodePath;
 import DataStructures.Trees.TreeNode;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 
@@ -22,12 +19,50 @@ public class LowestCommonAncestor extends RootToNodePath {
         return (int) Collections.max(intersection);
     }
 
+    private static TreeNode getLowestCommonAncestor(TreeNode root, TreeNode nodeA, TreeNode nodeB) {
+
+        if (Objects.isNull(root) || root.getData() == nodeA.getData() || root.getData() == nodeB.getData()) {
+            return root;
+        }
+
+        TreeNode left = getLowestCommonAncestor(root.getLeft(), nodeA, nodeB);
+
+        TreeNode right = getLowestCommonAncestor(root.getRight(), nodeA, nodeB);
+
+        boolean isLeftNull = Objects.isNull(left);
+        boolean isRightNull = Objects.isNull(right);
+
+
+        if (!isLeftNull && !isRightNull) {
+            return root;
+        } else if (isLeftNull && !isRightNull) {
+            return right;
+        } else if (!isLeftNull) {
+            return left;
+        }
+
+        return null;
+    }
+
 
     public static void main(String[] args) {
         int[] nodes = {1, 2, 4, -1, -1, 5, 6, -1, -1, 7, -1, -1, 3, -1, 8, -1, -1};
-        int nodeA = 8, nodeB = 5;
 
+//      Unoptimized Solution
+//        int nodeA = 8, nodeB = 5;
+//
+//        TreeNode root = LowestCommonAncestor.buildTree(nodes);
+//        System.out.println("LowestCommonAncestor is: " + getLowestCommonAncestor(root, nodeA, nodeB));
+//
+
+//        Optimized Solution
+
+        TreeNode nodeA = new TreeNode(5);
+        TreeNode nodeB = new TreeNode(4);
         TreeNode root = LowestCommonAncestor.buildTree(nodes);
-        System.out.println("LowestCommonAncestor is: " + getLowestCommonAncestor(root, nodeA, nodeB));
+        TreeNode lca = getLowestCommonAncestor(root, nodeA, nodeB);
+
+        System.out.println("LowestCommonAncestor is: " + lca.getData());
+
     }
 }
